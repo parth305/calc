@@ -23,6 +23,8 @@ function helper(params) {
       return "log(";
     case "ln":
       return "ln(";
+    case "ten-pow":
+      return "10^";
     default:
       return params;
   }

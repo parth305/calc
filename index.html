@@ -44,12 +44,12 @@
                 ></path>
               </svg>
               <div class="subMenu">
-                <div class="subMenuItems">sin</div>
-                <div class="subMenuItems">cos</div>
-                <div class="subMenuItems">tan</div>
-                <div class="subMenuItems">sinh</div>
-                <div class="subMenuItems">cosh</div>
-                <div class="subMenuItems">tanh</div>
+                <div class="subMenuItems trignomertyFunctions">sin</div>
+                <div class="subMenuItems trignomertyFunctions">cos</div>
+                <div class="subMenuItems trignomertyFunctions">tan</div>
+                <div class="subMenuItems trignomertyFunctions">sinh</div>
+                <div class="subMenuItems trignomertyFunctions">cosh</div>
+                <div class="subMenuItems trignomertyFunctions">tanh</div>
               </div>
             </div>
             <div class="functionButton">
@@ -74,12 +74,12 @@
                 ></path>
               </svg>
               <div class="subMenu">
-                <div class="subMenuItems">X<sup>2</sup></div>
-                <div class="subMenuItems"><sup>1</sup>/X</div>
-                <div class="subMenuItems">|x|</div>
-                <div class="subMenuItems">exp</div>
-                <div class="subMenuItems">mod</div>
-                <div class="subMenuItems">rand</div>
+                <div class="subMenuItems genralFunctions" id="x-pow">X<sup>2</sup></div>
+                <div class="subMenuItems genralFunctions" id="one-by-x"><sup>1</sup>/X</div>
+                <div class="subMenuItems genralFunctions" id="mod-x">|X|</div>
+                <div class="subMenuItems genralFunctions">exp</div>
+                <div class="subMenuItems genralFunctions">mod</div>
+                <div class="subMenuItems genralFunctions">rand</div>
               </div>
             </div>
           </div>
@@ -93,7 +93,7 @@
           <div class="calcButtonItem remove" id="remove">
             <img src="images/buttons/back.png" alt="" srcset="" />
           </div>
-          <div class="calcButtonItem">√x</div>
+          <div class="calcButtonItem" id="root">√x</div>
           <div class="calcButtonItem addToExpression">(</div>
           <div class="calcButtonItem addToExpression">)</div>
           <div class="calcButtonItem" id="factorial">n!</div>
@@ -105,7 +105,7 @@
               srcset=""
             />
           </div>
-          <div class="calcButtonItem">
+          <div class="calcButtonItem" id="x-pow-y">
             <span>X<sup>y</sup></span>
           </div>
           <div class="calcButtonItem addToExpression">7</div>
@@ -119,7 +119,7 @@
               srcset=""
             />
           </div>
-          <div class="calcButtonItem">
+          <div class="calcButtonItem" id="ten-pow">
             <span>10<sup>x</sup></span>
           </div>
           <div class="calcButtonItem addToExpression">4</div>
