@@ -1,49 +1,40 @@
+import addToExpression from "./Functions/addToExpression.js";
+import changeSign from "./Functions/changeSign.js";
+import clearScreen from "./Functions/clearScreen.js";
+import displayExpression from "./Functions/displayExpression.js";
+import remove from "./Functions/remove.js";
+
 let expression = [];
-displayExpression();
-function addToExpression(param) {
-  expression.push(param);
-  displayExpression();
-}
+const screen = document.getElementById("screen");
+displayExpression(expression, screen);
 
-function changeSign() {
-  if (isNaN(expression.join(""))) {
-    if (
-      expression[0] === "-" &&
-      expression[1] === "(" &&
-      expression[expression.length - 1] === ")"
-    ) {
-      expression.splice(0, 2);
-      expression.pop();
-    } else {
-      expression = ["-", "(", ...expression, ")"];
-    }
-  } else {
-    console.log(expression);
-    if (Number(expression.join("")) < 0) {
-      expression.splice(0, 1);
-    } else if (Number(expression.join("")) > 0) {
-      expression = ["-", ...expression];
-    }
-  }
-  displayExpression();
-}
+Array.from(document.getElementsByClassName("addToExpression")).map((element) =>
+  element.addEventListener("click", (e) => {
+    expression = addToExpression(e.target.innerText, expression, screen);
+  })
+);
 
-function displayExpression() {
-  let screen = document.getElementById("screen");
-  if (expression.length === 0) {
-    screen.value = "0";
-  } else {
-    console.log(expression);
-    screen.value = expression.join("");
-  }
-}
+Array.from(document.getElementsByClassName("ASMD")).map((element) =>
+  element.addEventListener("click", (e) => {
+    expression = addToExpression(e.target.name, expression, screen);
+  })
+);
 
-function clearScreen() {
-  expression = [];
-  displayExpression();
-}
+document.getElementById("factorial").addEventListener("click", () => {
+  expression = addToExpression("factorial",expression, screen);
+});
 
-function remove(){
-    expression.pop()
-    displayExpression()
-}
+
+
+document.getElementById("changesign").addEventListener("click", () => {
+  expression = changeSign(expression, screen);
+});
+document.getElementById("clearScreen").addEventListener("click", () => {
+  expression = clearScreen(expression, screen);
+});
+document.getElementById("remove").addEventListener("click", () => {
+  expression = remove(expression, screen);
+});
+
+
+

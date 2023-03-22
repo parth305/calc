@@ -7,7 +7,7 @@
     <title>Calulator</title>
     <link rel="icon" type="image/x-icon" href="/images/calc-icon.png" />
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
+    <script src="script.js" defer type="module"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,7 +19,7 @@
   <body>
     <div class="container">
       <div class="calcBody">
-        <input class="calcDisplay" id="screen" type="text"/>
+        <input class="calcDisplay" id="screen" type="text" />
 
         <div class="calcFunctions">
           <div class="degreeFunctions"><span>DEG</span><span>F-E</span></div>
@@ -87,48 +87,63 @@
 
         <div class="calcButtons">
           <div class="calcButtonItem">2<sup>nd</sup></div>
-          <div class="calcButtonItem" onclick="addToExpression('π')">π</div>
-          <div class="calcButtonItem" onclick="addToExpression('e')">e</div>
-          <div class="calcButtonItem clear" onclick="clearScreen()">C</div>
-          <div class="calcButtonItem remove">
-            <img src="images/buttons/back.png" alt="" srcset="" onclick="remove()"/>
+          <div class="calcButtonItem addToExpression">π</div>
+          <div class="calcButtonItem addToExpression">e</div>
+          <div class="calcButtonItem clear" id="clearScreen">C</div>
+          <div class="calcButtonItem remove" id="remove">
+            <img src="images/buttons/back.png" alt="" srcset="" />
           </div>
           <div class="calcButtonItem">√x</div>
-          <div class="calcButtonItem" onclick="addToExpression('(')">(</div>
-          <div class="calcButtonItem" onclick="addToExpression(')')">)</div>
-          <div class="calcButtonItem">n!</div>
+          <div class="calcButtonItem addToExpression">(</div>
+          <div class="calcButtonItem addToExpression">)</div>
+          <div class="calcButtonItem" id="factorial">n!</div>
           <div class="calcButtonItem ASMD">
-            <img src="images/buttons/division.png" alt="" srcset="" onclick="addToExpression('/')"/>
+            <img
+              src="images/buttons/division.png"
+              name="division"
+              alt=""
+              srcset=""
+            />
           </div>
           <div class="calcButtonItem">
             <span>X<sup>y</sup></span>
           </div>
-          <div class="calcButtonItem" onclick="addToExpression('7')">7</div>
-          <div class="calcButtonItem" onclick="addToExpression('8')">8</div>
-          <div class="calcButtonItem" onclick="addToExpression('9')">9</div>
+          <div class="calcButtonItem addToExpression">7</div>
+          <div class="calcButtonItem addToExpression">8</div>
+          <div class="calcButtonItem addToExpression">9</div>
           <div class="calcButtonItem ASMD">
-            <img src="images/buttons/multiplication.png" alt="" srcset="" onclick="addToExpression('*')"/>
+            <img
+              src="images/buttons/multiplication.png"
+              name="multiplication"
+              alt=""
+              srcset=""
+            />
           </div>
           <div class="calcButtonItem">
             <span>10<sup>x</sup></span>
           </div>
-          <div class="calcButtonItem" onclick="addToExpression('4')">4</div>
-          <div class="calcButtonItem" onclick="addToExpression('5')">5</div>
-          <div class="calcButtonItem" onclick="addToExpression('6')">6</div>
+          <div class="calcButtonItem addToExpression">4</div>
+          <div class="calcButtonItem addToExpression">5</div>
+          <div class="calcButtonItem addToExpression">6</div>
           <div class="calcButtonItem ASMD">
-            <img src="images/buttons/substraction.png" alt="" srcset="" onclick="addToExpression('-')"/>
+            <img
+              src="images/buttons/substraction.png"
+              name="substraction"
+              alt=""
+              srcset=""
+            />
           </div>
-          <div class="calcButtonItem">log</div>
-          <div class="calcButtonItem" onclick="addToExpression('1')">1</div>
-          <div class="calcButtonItem" onclick="addToExpression('2')">2</div>
-          <div class="calcButtonItem" onclick="addToExpression('3')">3</div>
+          <div class="calcButtonItem addToExpression">log</div>
+          <div class="calcButtonItem addToExpression">1</div>
+          <div class="calcButtonItem addToExpression">2</div>
+          <div class="calcButtonItem addToExpression">3</div>
           <div class="calcButtonItem ASMD">
-            <img src="images/buttons/plus.png" alt="" srcset="" onclick="addToExpression('+')"/>
+            <img src="images/buttons/plus.png" name="plus" alt="" srcset="" />
           </div>
-          <div class="calcButtonItem">ln</div>
-          <div class="calcButtonItem" onclick="changeSign()"'>+/-</div>
-          <div class="calcButtonItem" onclick="addToExpression('0')">0</div>
-          <div class="calcButtonItem" onclick="addToExpression('.')">.</div>
+          <div class="calcButtonItem addToExpression">ln</div>
+          <div class="calcButtonItem" id="changesign">+/-</div>
+          <div class="calcButtonItem addToExpression">0</div>
+          <div class="calcButtonItem addToExpression">.</div>
           <div class="calcButtonItem equal">
             <img src="images/buttons/equal.png" alt="" srcset="" />
           </div>
