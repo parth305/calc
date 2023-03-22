@@ -5,6 +5,7 @@ import displayExpression from "./Functions/displayExpression.js";
 import genralFunctions from "./Functions/genralFunctions.js";
 import remove from "./Functions/remove.js";
 import root from "./Functions/root.js";
+import submit from "./Functions/Submit.js";
 import toPower from "./Functions/toPower.js";
 import trignomertyFunctions from "./Functions/trignomertyFunctions.js";
 
@@ -57,6 +58,9 @@ document.getElementById("clearScreen").addEventListener("click", () => {
 });
 document.getElementById("remove").addEventListener("click", () => {
   expression = remove(expression, screen);
+});
+document.getElementById("submit").addEventListener("click", () => {
+  expression = submit(expression, screen);
 });
 
 
