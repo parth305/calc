@@ -17,9 +17,18 @@ function calculate(expression) {
       case "e":
         str += Math.E.toString();
         break;
+      case "e^":
+        str += Math.E.toString().concat("**");
+        break;
+      case "^2":
+        str += "**2";
+        break;
       // base 10
       case "log(":
         str += "Math.log10(";
+        break;
+      case "abs(":
+        str += "Math.abs(";
         break;
       // base e
       case "ln(":
@@ -38,26 +47,6 @@ function calculate(expression) {
         let temp = ["("];
         let stack = ["("];
         i++;
-        // do {
-        //   if (expression[i] === "(") {
-        //     stack.push("(");
-        //     temp += expression[i];
-        //     i++;
-        //   } else if (expression[i] === ")") {
-        //     stack.pop();
-        //     temp += expression[i];
-        //     console.log("in second if",temp);
-        //     if (stack.length!==0) {
-        //       i++
-        //     }
-        //   } else {
-        //     if (expression[i] !== undefined) {
-        //       temp += expression[i];
-        //     }
-        //     i++;
-        //   }
-        //   console.log(expression[i],"here");
-        // } while (stack.length !== 0);
 
         do {
           if (expression[i] === "(") {
@@ -81,9 +70,31 @@ function calculate(expression) {
             i++;
           }
         } while (stack.length !== 0);
-        console.log("this is temp", temp);
-        let temp2 = Number(eval(calculate(temp)));
-        str += Factorial(temp2);
+        if (temp.length === 2 && temp[0] === "(" && temp[1] === ")") {
+          str += "1";
+        } else {
+          let temp2 = Number(eval(calculate(temp)));
+          str += Factorial(temp2);
+        }
+        break;
+
+      case "sin(":
+        str += "Math.sin(";
+        break;
+      case "cos(":
+        str += "Math.cos(";
+        break;
+      case "tan(":
+        str += "Math.tan(";
+        break;
+      case "sinh(":
+        str += "Math.sinh(";
+        break;
+      case "cosh(":
+        str += "Math.cosh(";
+        break;
+      case "tanh(":
+        str += "Math.tanh(";
         break;
       case undefined:
         break;
@@ -103,3 +114,24 @@ function Factorial(param) {
   }
   return fact;
 }
+
+// do {
+//   if (expression[i] === "(") {
+//     stack.push("(");
+//     temp += expression[i];
+//     i++;
+//   } else if (expression[i] === ")") {
+//     stack.pop();
+//     temp += expression[i];
+//     console.log("in second if",temp);
+//     if (stack.length!==0) {
+//       i++
+//     }
+//   } else {
+//     if (expression[i] !== undefined) {
+//       temp += expression[i];
+//     }
+//     i++;
+//   }
+//   console.log(expression[i],"here");
+// } while (stack.length !== 0);
