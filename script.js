@@ -3,6 +3,7 @@ import changeSign from "./Functions/changeSign.js";
 import clearScreen from "./Functions/clearScreen.js";
 import displayExpression from "./Functions/displayExpression.js";
 import genralFunctions from "./Functions/genralFunctions.js";
+import memoryFunction from "./Functions/memoryFunctions.js";
 import remove from "./Functions/remove.js";
 import root from "./Functions/root.js";
 import submit from "./Functions/Submit.js";
@@ -10,6 +11,7 @@ import toPower from "./Functions/toPower.js";
 import trignomertyFunctions from "./Functions/trignomertyFunctions.js";
 
 let expression = [];
+let memory=[];
 const screen = document.getElementById("screen");
 displayExpression(expression, screen);
 
@@ -34,6 +36,18 @@ Array.from(document.getElementsByClassName("trignomertyFunctions")).map((element
 Array.from(document.getElementsByClassName("genralFunctions")).map((element) =>
   element.addEventListener("click", (e) => {
     expression = genralFunctions(e.target.innerText, expression, screen);
+  })
+);
+
+Array.from(document.getElementsByClassName("memorybutton")).map((element) =>
+  element.addEventListener("click", (e) => {
+    try {
+     let r= memoryFunction(e.target.innerText,expression, memory, screen);
+     console.log("in script",r);
+    } catch (error) {
+      console.log("alrt in script");
+      alert(error)
+    }
   })
 );
 
