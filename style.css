@@ -22,7 +22,7 @@ body {
 }
 
 .calcBody {
-  border-radius: 10px;
+  border-radius: 15px;
   background-color: rgb(70, 67, 67);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
@@ -30,13 +30,15 @@ body {
   padding: 20px 10px;
   color: whitesmoke;
   width: 500px;
+  padding-bottom: 7px;
 }
 
 /* display */
 .calcDisplay {
   height: 100px;
   border-radius: 5px;
-  background-color: rgb(97, 96, 96);
+  /* background-color: rgb(97, 96, 96); */
+  background-color: rgb(82, 80, 80);
   font-size: 40px;
   padding-bottom: 10px;
   margin: 0px;
@@ -46,6 +48,9 @@ body {
   border: none;
   color: whitesmoke;
   text-align-last: right;
+  border: 7px solid #626262;
+  border-radius: 15px;
+  padding-right: 10px;
 }
 
 /* Funcations */
@@ -56,6 +61,9 @@ body {
 .memoryFUnctions {
   display: flex;
 }
+.degreeFunctions span:hover {
+  cursor: pointer;
+}
 .degreeFunctions {
   display: flex;
 }
@@ -64,6 +72,9 @@ body {
   padding: 7px 20px;
   width: 100px;
   text-align: center;
+}
+.memoryFUnctions span:hover {
+  cursor: pointer;
 }
 .degreeFunctions span {
   text-align: center;
@@ -129,8 +140,11 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   justify-content: center;
-  gap: 5px;
+  gap: 12px;
+  background-color: #626262;
   font-size: 19px;
+  padding: 25px 17px;
+  border-radius: 24px;
 }
 
 .calcButtonItem {
@@ -139,8 +153,10 @@ body {
   align-items: center;
   padding: 20px 20px;
   background-color: rgb(49, 49, 49);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
   border-radius: 10px;
 }
 .calcButtonItem:hover {
@@ -162,7 +178,7 @@ body {
   background-color: #f84646;
 }
 .remove {
-  background-color: #40e0d0;
+  background-color: #438b83;
 }
 .remove:hover {
   background-color: #5bc2b8;
@@ -175,4 +191,8 @@ body {
 }
 .ASMD img {
   width: 20px;
+}
+
+.memorydisable {
+  color: grey;
 }

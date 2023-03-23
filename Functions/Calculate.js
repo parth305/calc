@@ -1,3 +1,5 @@
+import Factorial from "./factorial.js";
+
 export default function calculate(expression) {
   let str = "";
   for (let i = 0; i < expression.length; i++) {
@@ -102,14 +104,7 @@ export default function calculate(expression) {
         break;
     }
   }
-  console.log(str);
+//   console.log(str);
   return str;
 }
 
-function Factorial(param) {
-  let fact = 1;
-  for (let i = 1; i <= param; i++) {
-    fact *= i;
-  }
-  return fact;
-}
