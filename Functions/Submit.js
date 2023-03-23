@@ -2,6 +2,9 @@ import displayExpression from "./displayExpression.js";
 
 export default function submit(expression, screen) {
   expression = [eval(calculate(expression))];
+  if (expression[0]===0 || expression[0]===-0) {
+    expression=[]
+  }
   displayExpression(expression, screen);
   return expression;
 }
@@ -24,6 +27,9 @@ function calculate(expression) {
         str += "**2";
         break;
       // base 10
+      case "round(":
+        str += "Math.round(";
+        break;
       case "log(":
         str += "Math.log10(";
         break;

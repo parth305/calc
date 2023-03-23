@@ -33,5 +33,10 @@ function helper(params, expression) {
         return ["abs(",  "0", ")"];
       }
       return ["abs(",  ...expression, ")"];
+      case "round":
+        if (expression.length === 0) {
+          return ["round(", "0", ")"];
+        }
+        return ["round(", ...expression, ")"];
   }
 }
