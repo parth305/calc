@@ -17,7 +17,7 @@ function helper(params) {
       return "+";
     case "division":
       return "/";
-    case "factorial":
+    case "n!":
       return "fact(";
     case "log":
       return "log(";

@@ -8,8 +8,8 @@ export default function submit(expression, screen) {
 
 function calculate(expression) {
   let str = "";
-  for (let i=0;i<expression.length;i++) {
-    let iterator=expression[i]
+  for (let i = 0; i < expression.length; i++) {
+    let iterator = expression[i];
     switch (iterator) {
       case "π":
         str += Math.PI.toString();
@@ -35,15 +35,54 @@ function calculate(expression) {
         str += "Math.sqrt(";
         break;
       case "fact(":
-        let temp=""
-        i++
-        do{
-            if (expression[i]!==")" && expression[i]!==undefined) {
-                temp+=expression[i]
+        let temp = ["("];
+        let stack = ["("];
+        i++;
+        // do {
+        //   if (expression[i] === "(") {
+        //     stack.push("(");
+        //     temp += expression[i];
+        //     i++;
+        //   } else if (expression[i] === ")") {
+        //     stack.pop();
+        //     temp += expression[i];
+        //     console.log("in second if",temp);
+        //     if (stack.length!==0) {
+        //       i++
+        //     }
+        //   } else {
+        //     if (expression[i] !== undefined) {
+        //       temp += expression[i];
+        //     }
+        //     i++;
+        //   }
+        //   console.log(expression[i],"here");
+        // } while (stack.length !== 0);
+
+        do {
+          if (expression[i] === "(") {
+            stack.push("(");
+            temp.push("(");
+            i++;
+          } else if (expression[i] === ")") {
+            stack.pop();
+            if (stack.length !== 0) {
+              i++;
             }
-            i++
-        }while (expression[i]!==")")
-        let temp2=Number(eval(temp))
+            temp.push(")");
+          } else if (expression[i][expression[i].length - 1] === "(") {
+            stack.push("(");
+            temp.push(expression[i]);
+            i++;
+          } else {
+            if (expression[i] !== undefined) {
+              temp.push(expression[i]);
+            }
+            i++;
+          }
+        } while (stack.length !== 0);
+        console.log("this is temp", temp);
+        let temp2 = Number(eval(calculate(temp)));
         str += Factorial(temp2);
         break;
       case undefined:
@@ -57,12 +96,10 @@ function calculate(expression) {
   return str;
 }
 
-
 function Factorial(param) {
-    let fact = 1;
-    for (let i = 1; i <= param; i++) {
-      fact *= i;
-    }
-    return fact;
+  let fact = 1;
+  for (let i = 1; i <= param; i++) {
+    fact *= i;
   }
-  
+  return fact;
+}
