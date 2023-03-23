@@ -1,7 +1,9 @@
 import addToExpression from "./Functions/addToExpression.js";
 import changeSign from "./Functions/changeSign.js";
 import clearScreen from "./Functions/clearScreen.js";
+import DEGtoRAID from "./Functions/degToRaid.js";
 import displayExpression from "./Functions/displayExpression.js";
+import FE from "./Functions/FE.js";
 import genralFunctions from "./Functions/genralFunctions.js";
 import memoryFunction from "./Functions/memoryFunctions.js";
 import remove from "./Functions/remove.js";
@@ -53,6 +55,13 @@ Array.from(document.getElementsByClassName("memorybutton")).map((element) =>
 
 document.getElementById("ten-pow").addEventListener("click", () => {
   expression = addToExpression("ten-pow",expression, screen);
+});
+
+document.getElementById("DEG").addEventListener("click", () => {
+  expression = DEGtoRAID(expression, screen);
+});
+document.getElementById("FE").addEventListener("click", () => {
+  expression = FE(expression, screen);
 });
 
 document.getElementById("x-pow-y").addEventListener("click", () => {

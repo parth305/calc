@@ -13,7 +13,6 @@ export default function memoryFunction(params, expression, memory, screen) {
 }
 
 function helper(params, expression, memory) {
-  console.log(params);
   switch (params) {
     case "M+":
       if (isNaN(expression.join(""))) {
@@ -40,6 +39,4 @@ function helper(params, expression, memory) {
     default:
       break;
   }
-  console.log("memory", memory);
-  console.log("expression", expression);
 }
