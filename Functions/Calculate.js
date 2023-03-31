@@ -104,7 +104,5 @@ export default function calculate(expression) {
         break;
     }
   }
-//   console.log(str);
   return str;
 }
-

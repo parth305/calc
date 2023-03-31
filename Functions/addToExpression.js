@@ -1,7 +1,6 @@
 import displayExpression from "./displayExpression.js";
 
 export default function addToExpression(param, expression, screen) {
-  console.log(param);
   expression.push(helper(param));
   displayExpression(expression, screen);
   return expression;

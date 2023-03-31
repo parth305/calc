@@ -5,10 +5,10 @@ export default function submit(expression, screen) {
   try {
     expression = [eval(calculate(expression))];
   } catch (error) {
-    expression=["Invalid Expression"]
+    expression = ["Invalid Expression"];
   }
-  if (expression[0]===0 || expression[0]===-0) {
-    expression=[]
+  if (expression[0] === 0 || expression[0] === -0) {
+    expression = [];
   }
   displayExpression(expression, screen);
   return expression;

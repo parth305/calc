@@ -13,7 +13,7 @@ import toPower from "./Functions/toPower.js";
 import trignomertyFunctions from "./Functions/trignomertyFunctions.js";
 
 let expression = [];
-let memory=[];
+let memory = [];
 const screen = document.getElementById("screen");
 displayExpression(expression, screen);
 
@@ -29,10 +29,11 @@ Array.from(document.getElementsByClassName("ASMD")).map((element) =>
   })
 );
 
-Array.from(document.getElementsByClassName("trignomertyFunctions")).map((element) =>
-  element.addEventListener("click", (e) => {
-    expression = trignomertyFunctions(e.target.innerText, expression, screen);
-  })
+Array.from(document.getElementsByClassName("trignomertyFunctions")).map(
+  (element) =>
+    element.addEventListener("click", (e) => {
+      expression = trignomertyFunctions(e.target.innerText, expression, screen);
+    })
 );
 
 Array.from(document.getElementsByClassName("genralFunctions")).map((element) =>
@@ -44,17 +45,15 @@ Array.from(document.getElementsByClassName("genralFunctions")).map((element) =>
 Array.from(document.getElementsByClassName("memorybutton")).map((element) =>
   element.addEventListener("click", (e) => {
     try {
-     let r= memoryFunction(e.target.innerText,expression, memory, screen);
-     console.log("in script",r);
+      let r = memoryFunction(e.target.innerText, expression, memory, screen);
     } catch (error) {
-      console.log("alrt in script");
-      alert(error)
+      alert(error);
     }
   })
 );
 
 document.getElementById("ten-pow").addEventListener("click", () => {
-  expression = addToExpression("ten-pow",expression, screen);
+  expression = addToExpression("ten-pow", expression, screen);
 });
 
 document.getElementById("DEG").addEventListener("click", () => {
@@ -71,7 +70,6 @@ document.getElementById("x-pow-y").addEventListener("click", () => {
 document.getElementById("root").addEventListener("click", () => {
   expression = root(expression, screen);
 });
- 
 
 document.getElementById("changesign").addEventListener("click", () => {
   expression = changeSign(expression, screen);
@@ -85,6 +83,3 @@ document.getElementById("remove").addEventListener("click", () => {
 document.getElementById("submit").addEventListener("click", () => {
   expression = submit(expression, screen);
 });
-
-
-

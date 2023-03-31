@@ -2,7 +2,6 @@ import displayExpression from "./displayExpression.js";
 
 export default function genralFunctions(params, expression, screen) {
   expression = helper(params, expression);
-  console.log(expression);
   displayExpression(expression, screen);
   return expression;
 }
@@ -30,13 +29,13 @@ function helper(params, expression) {
       return ["1", "/", "(", ...expression, ")"];
     case "|X|":
       if (expression.length === 0) {
-        return ["abs(",  "0", ")"];
+        return ["abs(", "0", ")"];
       }
-      return ["abs(",  ...expression, ")"];
-      case "round":
-        if (expression.length === 0) {
-          return ["round(", "0", ")"];
-        }
-        return ["round(", ...expression, ")"];
+      return ["abs(", ...expression, ")"];
+    case "round":
+      if (expression.length === 0) {
+        return ["round(", "0", ")"];
+      }
+      return ["round(", ...expression, ")"];
   }
 }
