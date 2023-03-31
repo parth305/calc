@@ -7,7 +7,7 @@
     <title>Calulator</title>
     <link rel="icon" type="image/x-icon" href="/images/calc-icon.png" />
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
+    <script src="script.js" defer type="module"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,12 +19,12 @@
   <body>
     <div class="container">
       <div class="calcBody">
-        <div class="calcDisplay">iqwqiw8734729731</div>
+        <input class="calcDisplay" id="screen" type="text" disabled/>
 
         <div class="calcFunctions">
-          <div class="degreeFunctions"><span>DEG</span><span>F-E</span></div>
+          <div class="degreeFunctions"><span id="DEG">DEG</span><span id="FE">F-E</span></div>
           <div class="memoryFUnctions">
-            <span>MC</span><span>MR</span><span>M+</span><span>M-</span>
+            <span class="memorybutton memorydisable" id="mc">MC</span><span class="memorybutton memorydisable" id="mr">MR</span><span class="memorybutton">M+</span><span class="memorybutton">M-</span>
           </div>
           <div class="mathFunctions">
             <div class="trignomertyButton">
@@ -44,12 +44,12 @@
                 ></path>
               </svg>
               <div class="subMenu">
-                <div class="subMenuItems">sin</div>
-                <div class="subMenuItems">cos</div>
-                <div class="subMenuItems">tan</div>
-                <div class="subMenuItems">sinh</div>
-                <div class="subMenuItems">cosh</div>
-                <div class="subMenuItems">tanh</div>
+                <div class="subMenuItems trignomertyFunctions">sin</div>
+                <div class="subMenuItems trignomertyFunctions">cos</div>
+                <div class="subMenuItems trignomertyFunctions">tan</div>
+                <div class="subMenuItems trignomertyFunctions">sinh</div>
+                <div class="subMenuItems trignomertyFunctions">cosh</div>
+                <div class="subMenuItems trignomertyFunctions">tanh</div>
               </div>
             </div>
             <div class="functionButton">
@@ -74,62 +74,81 @@
                 ></path>
               </svg>
               <div class="subMenu">
-                <div class="subMenuItems">X<sup>2</sup></div>
-                <div class="subMenuItems"><sup>1</sup>/X</div>
-                <div class="subMenuItems">|x|</div>
-                <div class="subMenuItems">exp</div>
-                <div class="subMenuItems">mod</div>
-                <div class="subMenuItems">rand</div>
+                <div class="subMenuItems genralFunctions" id="x-pow">
+                  X<sup>2</sup>
+                </div>
+                <div class="subMenuItems genralFunctions" id="one-by-x">
+                  <sup>1</sup>/X
+                </div>
+                <div class="subMenuItems genralFunctions" id="mod-x">|X|</div>
+                <div class="subMenuItems genralFunctions">exp</div>
+                <div class="subMenuItems genralFunctions">mod</div>
+                <div class="subMenuItems genralFunctions">rand</div>
               </div>
             </div>
           </div>
         </div>
 
         <div class="calcButtons">
-          <div class="calcButtonItem">2<sup>nd</sup></div>
-          <div class="calcButtonItem">π</div>
-          <div class="calcButtonItem">e</div>
-          <div class="calcButtonItem clear">C</div>
-          <div class="calcButtonItem remove">
+          <div class="calcButtonItem genralFunctions" id="round">round</div>
+          <div class="calcButtonItem addToExpression">π</div>
+          <div class="calcButtonItem addToExpression">e</div>
+          <div class="calcButtonItem clear" id="clearScreen">C</div>
+          <div class="calcButtonItem remove" id="remove">
             <img src="images/buttons/back.png" alt="" srcset="" />
           </div>
-          <div class="calcButtonItem">√x</div>
-          <div class="calcButtonItem">(</div>
-          <div class="calcButtonItem">)</div>
-          <div class="calcButtonItem">n!</div>
+          <div class="calcButtonItem" id="root">√x</div>
+          <div class="calcButtonItem addToExpression">(</div>
+          <div class="calcButtonItem addToExpression">)</div>
+          <div class="calcButtonItem addToExpression" id="factorial">n!</div>
           <div class="calcButtonItem ASMD">
-            <img src="images/buttons/division.png" alt="" srcset="" />
+            <img
+              src="images/buttons/division.png"
+              name="division"
+              alt=""
+              srcset=""
+            />
           </div>
-          <div class="calcButtonItem">
+          <div class="calcButtonItem" id="x-pow-y">
             <span>X<sup>y</sup></span>
           </div>
-          <div class="calcButtonItem">7</div>
-          <div class="calcButtonItem">8</div>
-          <div class="calcButtonItem">9</div>
+          <div class="calcButtonItem addToExpression">7</div>
+          <div class="calcButtonItem addToExpression">8</div>
+          <div class="calcButtonItem addToExpression">9</div>
           <div class="calcButtonItem ASMD">
-            <img src="images/buttons/multiplication.png" alt="" srcset="" />
+            <img
+              src="images/buttons/multiplication.png"
+              name="multiplication"
+              alt=""
+              srcset=""
+            />
           </div>
-          <div class="calcButtonItem">
+          <div class="calcButtonItem" id="ten-pow">
             <span>10<sup>x</sup></span>
           </div>
-          <div class="calcButtonItem">4</div>
-          <div class="calcButtonItem">5</div>
-          <div class="calcButtonItem">6</div>
+          <div class="calcButtonItem addToExpression">4</div>
+          <div class="calcButtonItem addToExpression">5</div>
+          <div class="calcButtonItem addToExpression">6</div>
           <div class="calcButtonItem ASMD">
-            <img src="images/buttons/substraction.png" alt="" srcset="" />
+            <img
+              src="images/buttons/substraction.png"
+              name="substraction"
+              alt=""
+              srcset=""
+            />
           </div>
-          <div class="calcButtonItem">log</div>
-          <div class="calcButtonItem">1</div>
-          <div class="calcButtonItem">2</div>
-          <div class="calcButtonItem">3</div>
+          <div class="calcButtonItem addToExpression">log</div>
+          <div class="calcButtonItem addToExpression">1</div>
+          <div class="calcButtonItem addToExpression">2</div>
+          <div class="calcButtonItem addToExpression">3</div>
           <div class="calcButtonItem ASMD">
-            <img src="images/buttons/plus.png" alt="" srcset="" />
+            <img src="images/buttons/plus.png" name="plus" alt="" srcset="" />
           </div>
-          <div class="calcButtonItem">ln</div>
-          <div class="calcButtonItem">+/-</div>
-          <div class="calcButtonItem">0</div>
-          <div class="calcButtonItem">.</div>
-          <div class="calcButtonItem equal">
+          <div class="calcButtonItem addToExpression">ln</div>
+          <div class="calcButtonItem" id="changesign">+/-</div>
+          <div class="calcButtonItem addToExpression">0</div>
+          <div class="calcButtonItem addToExpression">.</div>
+          <div class="calcButtonItem equal" id="submit">
             <img src="images/buttons/equal.png" alt="" srcset="" />
           </div>
         </div>
